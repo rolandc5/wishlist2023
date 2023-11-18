@@ -1,9 +1,15 @@
-.family-list {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 15px;
+ul {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 25px;
+  padding: 0px;
+  margin: 0px;
+  margin-top: 25px;
+}
+
+li {
+  list-style-type: none;
+  width: 160px;
 }
 
 .family-select {
@@ -16,7 +22,6 @@
   border-radius: 25px;
   width: 160px;
   height: 160px;
-  margin: 10px;
   background: var(--flash-white);
   box-shadow: rgba(0, 0, 0, 0.288) 0px 2px 4px 0px inset;
 
@@ -31,11 +36,3 @@
     color: var(--payne-gray);
   }
 }
-
-.empty {
-  width: 160px;
-  height: 160px;
-  margin: 10px;
-}
-
-

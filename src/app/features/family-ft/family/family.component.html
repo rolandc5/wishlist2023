@@ -1,16 +1,14 @@
-<div class="family-list">
-  <button [routerLink]="'/list'" class="family-select" (click)="listSelect(0)">
+<ul class="family-list">
+  <li [routerLink]="'/list'" class="family-select" (click)="listSelect(0)">
     <img src="../assets/images/mom.png"/>
     Mary
-  </button>
-  <button [routerLink]="'/list'" class="family-select" (click)="listSelect(1)">
+  </li>
+  <li [routerLink]="'/list'" class="family-select" (click)="listSelect(1)">
     <img src="../assets/images/baby.png"/>
     Mila
-  </button>
-  <button [routerLink]="'/list'" class="family-select" (click)="listSelect(2)">
+  </li>
+  <li [routerLink]="'/list'" class="family-select" (click)="listSelect(2)">
     <img src="../assets/images/dad.png"/>
     Roland
-  </button>
-  <div class="empty">
-  </div>
-</div>
+  </li>
+</ul>

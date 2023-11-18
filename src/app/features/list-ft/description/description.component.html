@@ -1,0 +1,10 @@
+<div class="description">
+  <img class="back-arrow" src="../../../../assets/icons/arrow-back-ios.svg" (click)="backBtn()"/>
+  <div class="item-description">
+    <p>{{item.description}}</p>
+    <img class="item-image" [src]="item.picture">
+    <p>{{item.price}}</p>
+    <button class="buy"><a [href]="item.url" target="_blank" rel="noopener noreferrer">View/Buy</a></button>
+    <button class="bought">I got this</button>
+  </div>
+</div>

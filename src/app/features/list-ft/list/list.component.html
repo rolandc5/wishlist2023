@@ -1,13 +1,8 @@
-<div class="item-list">
-  <div class="item">
-    <img [src]="items.picture">
-  </div>
-  <div class="item">
-    <img [src]="items.picture">
-  </div>
-  <div class="item">
-    <img [src]="items.picture">
-  </div>
-  <div class="empty">
-  </div>
-</div>
+<app-description *ngIf="modal" class="description" [item]="item"></app-description>
+<ul class="item-list">
+  <ng-container *ngFor="let item of items">
+    <li class="item" (click)="clickGetDescription(item)">
+      <img [src]="item.picture">
+    </li>
+  </ng-container>
+</ul>
