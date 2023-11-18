@@ -1,6 +1,7 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { StateManagementService } from '../core/services/state-management.service';
 
@@ -8,7 +9,8 @@ import { StateManagementService } from '../core/services/state-management.servic
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   providers: [
     StateManagementService
