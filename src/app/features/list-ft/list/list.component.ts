@@ -12,6 +12,7 @@ export class ListComponent implements OnInit {
   item: any;
   modal: boolean = false;
   items: any;
+  title: string = '';
 
   state = this.stateManagementService.descriptionState.subscribe((data: boolean) => {
     this.modal = data;
@@ -20,8 +21,11 @@ export class ListComponent implements OnInit {
   constructor(private stateManagementService: StateManagementService, private listService: ListService, private router: Router) { }
 
   ngOnInit() {
+    this.stateManagementService.titleState.subscribe(data => {
+      this.title = data;
+    })
     this.listService.getList().subscribe((data: any) => {
-      this.items = data;
+      this.items = data.filter((data: any) => this.title.toLowerCase().includes(data.name.toLowerCase()) );
     })
   }
 
