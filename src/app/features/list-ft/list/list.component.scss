@@ -14,12 +14,13 @@ li {
 }
 
 .bought {
-  position: fixed;
+  position: absolute;
+  opacity: 0.8;
   z-index: 5;
 }
 
 .blur {
-  filter: blur(2px);
+  filter: blur(.95px);
   z-index: -1;
 }
 
