@@ -4,9 +4,12 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { StateManagementService } from '../core/services/state-management.service';
+import { TitleComponent } from './components/title/title.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    TitleComponent
+  ],
   imports: [
     CommonModule,
     RouterModule,
@@ -14,6 +17,9 @@ import { StateManagementService } from '../core/services/state-management.servic
   ],
   providers: [
     StateManagementService
+  ],
+  exports: [
+    TitleComponent
   ]
 })
 export class SharedModule { 

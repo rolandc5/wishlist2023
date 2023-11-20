@@ -5,11 +5,6 @@
   align-content: center;
   flex-direction: column;
 }
-
-.title {
+app-title {
   margin-top: 25px;
-  color: var(--payne-gray);
-  font-family: 'Lato','Arial','Helvetica','sans-serif';
-  font-size: 20px;
-  cursor: pointer;
 }

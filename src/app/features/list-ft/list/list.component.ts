@@ -31,13 +31,12 @@ export class ListComponent implements OnInit {
     if (!this.items) {
       this.listService.getList();
     }
-    this.wishlistOwner = this.activatedRoute.snapshot.queryParams['name'];
-    console.log(this.titleChange[this.wishlistOwner.toLowerCase()]);
-    this.stateManagementService.titleState = this.titleChange[this.wishlistOwner.toLowerCase()];
+    this.wishlistOwner = this.activatedRoute.snapshot.queryParams['name'].toLowerCase();
     this.listService.list.subscribe((data: any) => {
-      this.items = data?.filter((data: any) => this.wishlistOwner.toLowerCase().includes(data.name.toLowerCase())).sort((a: any, b: any) => {
+      this.items = data?.filter((data: any) => this.wishlistOwner.includes(data.name.toLowerCase())).sort((a: any, b: any) => {
         return a.bought - b.bought
       });
+      this.stateManagementService.titleState = this.titleChange[this.wishlistOwner];
     });
   }
 
