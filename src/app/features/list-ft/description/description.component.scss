@@ -34,6 +34,21 @@
 }
 
 .bought {
+  width: 160px;
+  height: 160px;
+  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  position: absolute;
+  opacity: 0.8;
+  z-index: 5;
+}
+
+.blur {
+  filter: blur(.95px);
+  z-index: -1;
+}
+
+.bought-btn {
   width: 250px;
   height: 45px;
   border-radius: 10px;

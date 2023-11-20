@@ -2,10 +2,14 @@
   <img class="back-arrow" src="../../../../assets/icons/arrow-back-ios.svg" (click)="backBtn()"/>
   <div class="item-description">
     <p>{{item.description}}</p>
-    <img class="item-image" [src]="item.image">
+    <div>
+      <img class="bought" *ngIf="item.bought" src="../../../../assets/icons/check-circle-svgrepo-com.svg">
+      <img class="item-image" [ngClass]="item.bought ? 'blur': ''" [src]="item.image">
+    </div>
+    
     <p>{{item.price}}</p>
     <a [href]="item.url" target="_blank" rel="noopener noreferrer">View Item</a>
-    <button class="bought" *ngIf="!item.bought" (click)="clickReserved(true, item)">Reserve</button>
-    <button class="bought" *ngIf="item.bought" (click)="clickReserved(false, item)">Already Reserved</button>
+    <button class="bought-btn" *ngIf="!item.bought" (click)="clickReserved(true, item)">Reserve</button>
+    <button class="bought-btn" *ngIf="item.bought" (click)="clickReserved(false, item)">Already Reserved</button>
   </div>
 </div>
