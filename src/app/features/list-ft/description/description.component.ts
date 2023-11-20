@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { ListService } from 'src/app/core/services/list.service';
 import { StateManagementService } from 'src/app/core/services/state-management.service';
 
@@ -20,7 +20,7 @@ export class DescriptionComponent implements OnInit {
     this.stateManagementService.descriptionState = false;
   }
 
-  clickReserved() {
-    this.listService.putBought();
+  async clickReserved(boolean: boolean, item: any) {
+    await this.listService.putBought(boolean, item);
   }
 }

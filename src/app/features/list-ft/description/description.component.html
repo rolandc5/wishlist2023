@@ -5,7 +5,7 @@
     <img class="item-image" [src]="item.image">
     <p>{{item.price}}</p>
     <a [href]="item.url" target="_blank" rel="noopener noreferrer">View Item</a>
-    <button class="bought" *ngIf="!item.bought">I got this</button>
-    <button class="bought" *ngIf="item.bought">Already bought</button>
+    <button class="bought" *ngIf="!item.bought" (click)="clickReserved(true, item)">Reserve</button>
+    <button class="bought" *ngIf="item.bought" (click)="clickReserved(false, item)">Already Reserved</button>
   </div>
 </div>

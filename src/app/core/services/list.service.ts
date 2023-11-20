@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, from, lastValueFrom } from 'rxjs';
+import { BehaviorSubject, Observable, from, lastValueFrom, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +25,9 @@ export class ListService {
     });
   }
 
-  putBought() {
-    return this.httpClient.put('https://wishlist2023be-8964f48fca6b.herokuapp.com/updateList', { bought: true });
+  putBought(boolean: boolean, item: any) {
+    lastValueFrom(this.httpClient.put('http://localhost:8080/updateList', { id: item._id, bought: boolean }).pipe(tap(() => {
+      this.getList();
+    })));
   }
 }
