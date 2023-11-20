@@ -1,1 +1,4 @@
-<a class="title" (click)="clickTitle()">{{title}}</a>
+<a class="title" (click)="clickTitle()">
+  <img *ngIf="title !== 'Our Christmas Wishlist'" class="back-arrow" src="../../../../assets/icons/arrow-back-ios.svg"/>
+  {{title}}
+</a>

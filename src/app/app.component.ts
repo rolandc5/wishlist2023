@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { StateManagementService } from './core/services/state-management.service';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',

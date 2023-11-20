@@ -13,6 +13,16 @@ li {
   cursor: pointer;
 }
 
+.bought {
+  position: fixed;
+  z-index: 5;
+}
+
+.blur {
+  filter: blur(2px);
+  z-index: -1;
+}
+
 img {
   width: 160px;
   height: 160px;
@@ -21,12 +31,13 @@ img {
 }
 
 .description {
-  position: absolute;
-  top: -25px;
-  left: 0px;
-  height: 110vh;
-  width: 100%;
+  position: fixed; 
+  overflow-y: scroll;
+  overscroll-behavior: contain;
+  top: 0; right: 0; bottom: 0; left: 0; 
   background-color: var(--buff);
   display: flex;
   justify-content: center;
+  z-index: 100;
 }
+

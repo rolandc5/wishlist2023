@@ -1,8 +1,10 @@
-<app-description *ngIf="modal" class="description" [item]="item"></app-description>
+<app-description *ngIf="modal" class="description" [ngClass]="modal ? 'disableScroll' : ''" [item]="item"></app-description>
 <ul class="item-list">
   <ng-container *ngFor="let item of items">
     <li [ngClass]="'item'" (click)="clickGetDescription(item)">
-      <img [src]="item.image">
+      <img class="bought" *ngIf="item.bought" src="../../../../assets/icons/check-circle-svgrepo-com.svg">
+      <img [ngClass]="item.bought ? 'blur': ''" [src]="item.image">
+  
     </li>
   </ng-container>
 </ul>

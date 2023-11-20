@@ -27,5 +27,16 @@ export class StateManagementService {
     this.descriptionStateSubject.next(data);
   }
 
+  private modalStateSubject: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  private _modalState: Observable<boolean> = this.modalStateSubject.asObservable();
+  
+  get modalState(): Observable<boolean> {
+    return this._modalState;
+  }
+  
+  set modalState(data: boolean) {
+    this.descriptionStateSubject.next(data);
+  }
+
   constructor() { }
 }

@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-
 $dimGray: #646F75;
 $taupeGray: #949399;
 $cadetGray: #8C9EAA;
@@ -28,4 +27,6 @@ $buff: #E7A374;
 
 body {
   background-color: #C0CFE4;
+  height: 100%;
+  overflow-x: hidden !important;
 }

@@ -4,7 +4,7 @@
     <p>{{item.description}}</p>
     <img class="item-image" [src]="item.image">
     <p>{{item.price}}</p>
-    <a [ngClass]="item.bought ? 'disabled' : ''" [href]="item.url" target="_blank" rel="noopener noreferrer">View/Buy</a>
+    <a [href]="item.url" target="_blank" rel="noopener noreferrer">View Item</a>
     <button class="bought" *ngIf="!item.bought">I got this</button>
     <button class="bought" *ngIf="item.bought">Already bought</button>
   </div>
