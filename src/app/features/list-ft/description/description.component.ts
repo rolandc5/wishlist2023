@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ListService } from 'src/app/core/services/list.service';
 import { StateManagementService } from 'src/app/core/services/state-management.service';
 
 @Component({
@@ -9,14 +10,17 @@ import { StateManagementService } from 'src/app/core/services/state-management.s
 export class DescriptionComponent implements OnInit {
   @Input() item: any;
   
-  constructor(private stateManagementService: StateManagementService) {
+  constructor(private stateManagementService: StateManagementService, private listService: ListService) {
   }
 
   ngOnInit() {
-    // this.description = this.stateManagementService.descriptionState;
   }
 
   backBtn() {
     this.stateManagementService.descriptionState = false;
+  }
+
+  clickReserved() {
+    this.listService.putBought();
   }
 }

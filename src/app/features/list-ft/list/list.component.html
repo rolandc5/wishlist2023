@@ -1,7 +1,7 @@
 <app-description *ngIf="modal" class="description" [item]="item"></app-description>
 <ul class="item-list">
   <ng-container *ngFor="let item of items">
-    <li class="item" (click)="clickGetDescription(item)">
+    <li [ngClass]="'item'" (click)="clickGetDescription(item)">
       <img [src]="item.image">
     </li>
   </ng-container>

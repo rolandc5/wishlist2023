@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ListService } from 'src/app/core/services/list.service';
 import { StateManagementService } from 'src/app/core/services/state-management.service';
 
@@ -13,20 +13,32 @@ export class ListComponent implements OnInit {
   modal: boolean = false;
   items: any;
   title: string = '';
+  wishlistOwner: string = '';
+  titleChange: any = {
+    mary: 'Mary\'s Wishlist',
+    mila: 'Mila\'s Wishlist',
+    roland: 'Roland\'s Wishlist',
+  }
+
 
   state = this.stateManagementService.descriptionState.subscribe((data: boolean) => {
     this.modal = data;
   })
 
-  constructor(private stateManagementService: StateManagementService, private listService: ListService, private router: Router) { }
+  constructor(private stateManagementService: StateManagementService, private listService: ListService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.stateManagementService.titleState.subscribe(data => {
-      this.title = data;
-    })
-    this.listService.getList().subscribe((data: any) => {
-      this.items = data.filter((data: any) => this.title.toLowerCase().includes(data.name.toLowerCase()) );
-    })
+    if (!this.items) {
+      this.listService.getList();
+    }
+    this.wishlistOwner = this.activatedRoute.snapshot.queryParams['name'];
+    console.log(this.titleChange[this.wishlistOwner.toLowerCase()]);
+    this.stateManagementService.titleState = this.titleChange[this.wishlistOwner.toLowerCase()];
+    this.listService.list.subscribe((data: any) => {
+      this.items = data?.filter((data: any) => this.wishlistOwner.toLowerCase().includes(data.name.toLowerCase())).sort((a: any, b: any) => {
+        return a.bought - b.bought
+      });
+    });
   }
 
   clickGetDescription(item: any) {
