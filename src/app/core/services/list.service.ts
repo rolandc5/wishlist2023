@@ -26,7 +26,7 @@ export class ListService {
   }
 
   putBought(boolean: boolean, item: any) {
-    lastValueFrom(this.httpClient.put('http://localhost:8080/updateList', { id: item._id, bought: boolean }).pipe(tap(() => {
+    lastValueFrom(this.httpClient.put('https://wishlist2023be-8964f48fca6b.herokuapp.com/updateList', { id: item._id, bought: boolean }).pipe(tap(() => {
       this.getList();
     })));
   }
